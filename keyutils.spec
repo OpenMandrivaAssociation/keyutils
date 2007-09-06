@@ -47,7 +47,8 @@ Requires:	%devname
 
 %build
 %{make} ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=/%{_lib} \
-	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir}
+	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
+	CFLAGS='%optflags'
 
 %install
 %{__rm} -Rf %{buildroot}
