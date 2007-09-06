@@ -7,7 +7,7 @@
 
 Name:		%name
 Version:	1.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Linux Key Management Utilities
 URL:		http://people.redhat.com/~dhowells/keyutils/
 Source:		http://people.redhat.com/~dhowells/keyutils/keyutils-%{version}.tar.bz2
@@ -54,6 +54,9 @@ Requires:	%devname
 %{__make} ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=/%{_lib} \
 	  USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
 	  DESTDIR=%{buildroot} install
+
+%post -n %libname -p /sbin/ldconfig
+%postun -n %libname -p /sbin/ldconfig
 
 %files
 %doc README LICENCE.GPL LICENCE.LGPL
