@@ -7,7 +7,7 @@
 
 Name:		%name
 Version:	1.2
-Release:	%mkrel 2
+Release:	%mkrel 4
 Summary:	Linux Key Management Utilities
 URL:		http://people.redhat.com/~dhowells/keyutils/
 Source:		http://people.redhat.com/~dhowells/keyutils/keyutils-%{version}.tar.bz2
