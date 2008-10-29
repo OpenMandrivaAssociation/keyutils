@@ -7,10 +7,11 @@
 
 Name:		%name
 Version:	1.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 Summary:	Linux Key Management Utilities
 URL:		http://people.redhat.com/~dhowells/keyutils/
 Source:		http://people.redhat.com/~dhowells/keyutils/keyutils-%{version}.tar.bz2
+Patch:		keyutils-request-key-conf-add-cifs.upcall.patch
 Group:		System/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	LGPLv2+
@@ -45,6 +46,7 @@ Requires:	%devname
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %{make} ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=/%{_lib} \
