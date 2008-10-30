@@ -49,7 +49,7 @@ Requires:	%devname
 %patch -p1
 
 %build
-%{make} ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=/%{_lib} \
+%{make} -j1 ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=/%{_lib} \
 	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
 	CFLAGS='%optflags'
 
