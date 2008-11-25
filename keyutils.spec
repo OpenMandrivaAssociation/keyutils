@@ -7,7 +7,7 @@
 
 Name:		%name
 Version:	1.2
-Release:	%mkrel 7
+Release:	%mkrel 8
 Summary:	Linux Key Management Utilities
 URL:		http://people.redhat.com/~dhowells/keyutils/
 Source:		http://people.redhat.com/~dhowells/keyutils/keyutils-%{version}.tar.bz2
@@ -49,13 +49,13 @@ Requires:	%devname
 %patch -p1
 
 %build
-%{make} -j1 ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=/sbin LIBDIR=/%{_lib} \
+%{make} -j1 ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
 	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
 	CFLAGS='%optflags'
 
 %install
 %{__rm} -Rf %{buildroot}
-%{__make} ETCDIR=%{_sysconfdir} BINDIR=%{_bindir} SBINDIR=/sbin LIBDIR=/%{_lib} \
+%{__make} ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
 	  USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
 	  DESTDIR=%{buildroot} install
 
@@ -69,7 +69,7 @@ Requires:	%devname
 %files
 %doc README LICENCE.GPL LICENCE.LGPL
 %config(noreplace) %{_sysconfdir}/request-key.conf
-%{_bindir}/keyctl
+/bin/keyctl
 /sbin/request-key
 %{_mandir}/man1/keyctl.1.*
 %{_mandir}/man5/request-key.conf.5.*
