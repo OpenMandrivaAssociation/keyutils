@@ -31,7 +31,7 @@ instantiated.
 Summary:	Developement files for %libname
 Group:		System/Libraries
 Provides:	%{name}-devel = %{EVRD}
-Requires:	%{libname} = %{EVRD
+Requires:	%{libname} = %{EVRD}
 
 %description -n	%{devname}
 Developement files for %{libname}.
