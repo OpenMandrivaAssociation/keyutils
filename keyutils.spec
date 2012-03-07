@@ -30,7 +30,6 @@ instantiated.
 %package -n	%{devname}
 Summary:	Developement files for %libname
 Group:		System/Libraries
-Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} >= %{version}-%{release}
 
