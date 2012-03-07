@@ -53,7 +53,7 @@ Developement files for %{libname}.
 rm -f %{buildroot}%{_libdir}/*.*a
 
 %files
-%doc README LICENCE.GPL LICENCE.LGPL
+%doc README
 %config(noreplace) %{_sysconfdir}/request-key.conf
 /bin/keyctl
 /sbin/request-key
