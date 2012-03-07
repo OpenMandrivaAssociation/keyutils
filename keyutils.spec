@@ -30,8 +30,8 @@ instantiated.
 %package -n	%{devname}
 Summary:	Developement files for %libname
 Group:		System/Libraries
-Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libname} >= %{version}-%{release}
+Provides:	%{name}-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD
 
 %description -n	%{devname}
 Developement files for %{libname}.
