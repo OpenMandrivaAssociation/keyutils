@@ -1,12 +1,12 @@
 %define	major	1
 %define	libname	%mklibname %{name} %{major}
 %define	devname	%mklibname -d %{name}
-%define	staticname %mklibname -d -s %{name}
+%define	static	%mklibname -d -s %{name}
 
 Summary:	Linux Key Management Utilities
 Name:		keyutils
 Version:	1.5.5
-Release:	2
+Release:	3
 URL:		http://people.redhat.com/~dhowells/keyutils/
 Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
 Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
@@ -41,7 +41,7 @@ Developement files for %{libname}.
 %patch0 -p1
 
 %build
-%make -j1 ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
+%make ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
 	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
 	CFLAGS='%{optflags}' LDFLAGS="%{ldflags}"
 
@@ -50,7 +50,7 @@ Developement files for %{libname}.
 	  USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir}
 
 # cleanup
-rm -f %{buildroot}%{_libdir}/*.*a
+rm %{buildroot}%{_libdir}/*.a
 
 %files
 %doc README
