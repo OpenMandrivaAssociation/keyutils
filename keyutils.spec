@@ -41,7 +41,7 @@ Developement files for %{libname}.
 %patch0 -p1
 
 %build
-%make ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
+%make CC=%{__cc} ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
 	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
 	CFLAGS='%{optflags}' LDFLAGS="%{ldflags}"
 
