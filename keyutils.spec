@@ -6,7 +6,7 @@
 Summary:	Linux Key Management Utilities
 Name:		keyutils
 Version:	1.5.5
-Release:	3
+Release:	4
 URL:		http://people.redhat.com/~dhowells/keyutils/
 Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
 Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
