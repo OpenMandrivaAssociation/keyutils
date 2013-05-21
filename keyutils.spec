@@ -7,11 +7,11 @@ Summary:	Linux Key Management Utilities
 Name:		keyutils
 Version:	1.5.5
 Release:	4
-URL:		http://people.redhat.com/~dhowells/keyutils/
-Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
-Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
 Group:		System/Base
 License:	LGPLv2+
+Url:		http://people.redhat.com/~dhowells/keyutils/
+Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
+Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
 
 %description
 Utilities to control the kernel key management facility and to provide
@@ -38,16 +38,30 @@ Developement files for %{libname}.
 
 %prep
 %setup -q
-%patch0 -p1
+%apply_patches
 
 %build
-%make CC=%{__cc} ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
-	USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir} \
-	CFLAGS='%{optflags}' LDFLAGS="%{ldflags}"
+%make \
+	CC=%{__cc} \
+	ETCDIR=%{_sysconfdir} \
+	BINDIR=/bin \
+	SBINDIR=/sbin \
+	LIBDIR=/%{_lib} \
+	USRLIBDIR=%{_libdir} \
+	SHAREDIR=%{_datadir}/%{name} \
+	INCLUDEDIR=%{_includedir} \
+	CFLAGS='%{optflags}' \
+	LDFLAGS="%{ldflags}"
 
 %install
-%makeinstall_std ETCDIR=%{_sysconfdir} BINDIR=/bin SBINDIR=/sbin LIBDIR=/%{_lib} \
-	  USRLIBDIR=%{_libdir} SHAREDIR=%{_datadir}/%{name} INCLUDEDIR=%{_includedir}
+%makeinstall_std \
+	ETCDIR=%{_sysconfdir} \
+	BINDIR=/bin \
+	SBINDIR=/sbin \
+	LIBDIR=/%{_lib} \
+	USRLIBDIR=%{_libdir} \
+	SHAREDIR=%{_datadir}/%{name} \
+	INCLUDEDIR=%{_includedir}
 
 # cleanup
 rm %{buildroot}%{_libdir}/*.a
@@ -71,3 +85,4 @@ rm %{buildroot}%{_libdir}/*.a
 %{_includedir}/%{name}.h
 %{_libdir}/lib%{name}.so
 %{_mandir}/man3/*.3.*
+
