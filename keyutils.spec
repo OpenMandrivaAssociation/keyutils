@@ -5,8 +5,8 @@
 
 Summary:	Linux Key Management Utilities
 Name:		keyutils
-Version:	1.5.5
-Release:	9
+Version:	1.5.9
+Release:	1
 Group:		System/Base
 License:	LGPLv2+
 Url:		http://people.redhat.com/~dhowells/keyutils/
@@ -85,4 +85,4 @@ rm %{buildroot}%{_libdir}/*.a
 %{_includedir}/%{name}.h
 %{_libdir}/lib%{name}.so
 %{_mandir}/man3/*.3.*
-
+%{_mandir}/man7/*.7.*

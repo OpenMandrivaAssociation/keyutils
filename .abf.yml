@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   keyutils-1.5.5.tar.bz2: c62ce8ddf4f6173053f4c08d99735f6dfb5652da
+sources:
+  keyutils-1.5.9.tar.bz2: cf040adebe25eb466760f34752f4100fd5acb5e7
