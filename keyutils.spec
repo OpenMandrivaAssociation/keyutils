@@ -5,8 +5,8 @@
 
 Summary:	Linux Key Management Utilities
 Name:		keyutils
-Version:	1.5.10
-Release:	3
+Version:	1.6
+Release:	1
 Group:		System/Base
 License:	LGPLv2+
 Url:		http://people.redhat.com/~dhowells/keyutils/
@@ -38,10 +38,10 @@ Developement files for %{libname}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
-%make \
+%make_build \
 	CC=%{__cc} \
 	ETCDIR=%{_sysconfdir} \
 	BINDIR=/bin \
@@ -54,7 +54,8 @@ Developement files for %{libname}.
 	LDFLAGS="%{ldflags}"
 
 %install
-%makeinstall_std \
+%make_install \
+	NO_ARLIB=1 \
 	ETCDIR=%{_sysconfdir} \
 	BINDIR=/bin \
 	SBINDIR=/sbin \
