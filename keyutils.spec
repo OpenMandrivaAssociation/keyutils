@@ -12,6 +12,7 @@ License:	LGPLv2+
 Url:		http://people.redhat.com/~dhowells/keyutils/
 Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
 Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
+BuildRequires:	kernel-headers
 
 %description
 Utilities to control the kernel key management facility and to provide
@@ -64,8 +65,8 @@ Developement files for %{libname}.
 	SHAREDIR=%{_datadir}/%{name} \
 	INCLUDEDIR=%{_includedir}
 
-# cleanup
-rm %{buildroot}%{_libdir}/*.a
+mkdir -p %{buildroot}%{_libdir}/pkgconfig/
+mv -f %{buildroot}/%{_lib}/pkgconfig/*.pc %{buildroot}%{_libdir}/pkgconfig/
 
 %files
 %doc README
@@ -85,5 +86,6 @@ rm %{buildroot}%{_libdir}/*.a
 %files -n %{devname}
 %{_includedir}/%{name}.h
 %{_libdir}/lib%{name}.so
+%{_libdir}/pkgconfig/*.pc
 %{_mandir}/man3/*.3.*
 %{_mandir}/man7/*.7.*
