@@ -5,7 +5,7 @@
 
 # (tpg) fix error with LLD 2019-07-03
 # BUILDSTDERR: ld: error: duplicate symbol 'keyctl_pkey_query' in version script
-%global optflags %{optlags} -fuse-ld=bfd
+%global optflags %{optflags} -fuse-ld=bfd
 %global ldflags %{ldflags} -fuse-ld=bfd
 
 Summary:	Linux Key Management Utilities
