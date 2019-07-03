@@ -1,12 +1,12 @@
-%define	major	1
-%define	libname	%mklibname %{name} %{major}
-%define	devname	%mklibname -d %{name}
-%define	static	%mklibname -d -s %{name}
+%define major 1
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname -d %{name}
+%define static %mklibname -d -s %{name}
 
 Summary:	Linux Key Management Utilities
 Name:		keyutils
 Version:	1.6
-Release:	2
+Release:	3
 Group:		System/Base
 License:	LGPLv2+
 Url:		http://people.redhat.com/~dhowells/keyutils/
@@ -29,7 +29,7 @@ a mechanism by which the kernel call back to userspace to get a key
 instantiated.
 
 %package -n	%{devname}
-Summary:	Developement files for %libname
+Summary:	Developement files for %{libname}
 Group:		System/Libraries
 Provides:	%{name}-devel = %{EVRD}
 Requires:	%{libname} = %{EVRD}
@@ -45,8 +45,8 @@ Developement files for %{libname}.
 %make_build \
 	CC=%{__cc} \
 	ETCDIR=%{_sysconfdir} \
-	BINDIR=/bin \
-	SBINDIR=/sbin \
+	BINDIR=%{_bindir} \
+	SBINDIR=%{_sbindir} \
 	LIBDIR=/%{_lib} \
 	USRLIBDIR=%{_libdir} \
 	SHAREDIR=%{_datadir}/%{name} \
@@ -58,8 +58,8 @@ Developement files for %{libname}.
 %make_install \
 	NO_ARLIB=1 \
 	ETCDIR=%{_sysconfdir} \
-	BINDIR=/bin \
-	SBINDIR=/sbin \
+	BINDIR=%{_bindir} \
+	SBINDIR=%{_sbindir} \
 	LIBDIR=/%{_lib} \
 	USRLIBDIR=%{_libdir} \
 	SHAREDIR=%{_datadir}/%{name} \
@@ -71,9 +71,9 @@ mv -f %{buildroot}/%{_lib}/pkgconfig/*.pc %{buildroot}%{_libdir}/pkgconfig/
 %files
 %doc README
 %config(noreplace) %{_sysconfdir}/request-key.conf
-/bin/keyctl
-/sbin/request-key
-/sbin/key.dns_resolver
+%{_bindir}/keyctl
+%{_sbindir}/request-key
+%{_sbindir}/key.dns_resolver
 %{_mandir}/man1/keyctl.1.*
 %{_mandir}/man5/request-key.conf.5.*
 %{_mandir}/man8/request-key.8.*
