@@ -1,12 +1,14 @@
 %define major 1
-%define libname %mklibname %{name} %{major}
+%define oldlibname %mklibname %{name} 1
+%define libname %mklibname %{name}
 %define devname %mklibname -d %{name}
 %define static %mklibname -d -s %{name}
+%global build_ldflags %{build_ldflags} -Wl,--undefined-version
 
 Summary:	Linux Key Management Utilities
 Name:		keyutils
 Version:	1.6.1
-Release:	3
+Release:	4
 Group:		System/Base
 License:	LGPLv2+
 Url:		http://people.redhat.com/~dhowells/keyutils/
@@ -22,6 +24,7 @@ instantiated.
 %package -n %{libname}
 Summary:	Linux Key Management Utilities
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 Librarie to control the kernel key management facility and to provide
