@@ -7,12 +7,13 @@
 
 Summary:	Linux Key Management Utilities
 Name:		keyutils
-Version:	1.6.1
-Release:	4
+Version:	1.6.3
+Release:	1
 Group:		System/Base
 License:	LGPLv2+
 Url:		http://people.redhat.com/~dhowells/keyutils/
-Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
+Source0:	https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/keyutils-%{version}.tar.gz
+#Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
 Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
 BuildRequires:	kernel-headers
 
