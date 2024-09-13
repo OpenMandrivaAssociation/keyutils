@@ -89,3 +89,4 @@ Developement files for %{libname}.
 %{_libdir}/pkgconfig/*.pc
 %doc %{_mandir}/man3/*.3.*
 %doc %{_mandir}/man7/*.7.*
+%doc %{_mandir}/man5/key.dns_resolver.conf.5.*
