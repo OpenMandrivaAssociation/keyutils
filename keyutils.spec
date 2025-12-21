@@ -15,6 +15,7 @@ Url:		https://people.redhat.com/~dhowells/keyutils/
 Source0:	https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/keyutils-%{version}.tar.gz
 #Source0:	http://people.redhat.com/~dhowells/keyutils/%{name}-%{version}.tar.bz2
 Patch0:		keyutils-request-key-conf-add-cifs.upcall.patch
+BuildRequires:	make
 BuildRequires:	kernel-headers
 
 %description
