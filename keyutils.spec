@@ -47,27 +47,27 @@ Developement files for %{libname}.
 
 %build
 %make_build \
-	CC=%{__cc} \
-	ETCDIR=%{_sysconfdir} \
-	BINDIR=%{_bindir} \
-	SBINDIR=%{_sbindir} \
-	LIBDIR=%{_libdir} \
-	USRLIBDIR=%{_libdir} \
-	SHAREDIR=%{_datadir}/%{name} \
-	INCLUDEDIR=%{_includedir} \
+	CC="%{__cc}" \
+	ETCDIR="%{_sysconfdir}" \
+	BINDIR="%{_bindir}" \
+	SBINDIR="%{_sbindir}" \
+	LIBDIR="%{_libdir}" \
+	USRLIBDIR="%{_libdir}" \
+	SHAREDIR="%{_datadir}/%{name}" \
+	INCLUDEDIR="%{_includedir}" \
 	CFLAGS="%{optflags}" \
 	LDFLAGS="%{build_ldflags}"
 
 %install
 %make_install \
 	NO_ARLIB=1 \
-	ETCDIR=%{_sysconfdir} \
-	BINDIR=%{_bindir} \
-	SBINDIR=%{_sbindir} \
-	LIBDIR=%{_libdir} \
-	USRLIBDIR=%{_libdir} \
-	SHAREDIR=%{_datadir}/%{name} \
-	INCLUDEDIR=%{_includedir}
+	ETCDIR="%{_sysconfdir}" \
+	BINDIR="%{_bindir}" \
+	SBINDIR="%{_sbindir}" \
+	LIBDIR="%{_libdir}" \
+	USRLIBDIR="%{_libdir}" \
+	SHAREDIR="%{_datadir}/%{name}" \
+	INCLUDEDIR="%{_includedir}"
 
 %files
 %doc README
