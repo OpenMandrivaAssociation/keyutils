@@ -69,15 +69,21 @@ Developement files for %{libname}.
 	SHAREDIR="%{_datadir}/%{name}" \
 	INCLUDEDIR="%{_includedir}"
 
+# The libkeyutils.so symlink always points at /usr/lib64/libkeyutils.so.%{major},
+# even if we're installing to /usr/loongarch64-openmandriva-linux-gnu/lib64...
+# Make it relative
+rm %{buildroot}%{_libdir}/libkeyutils.so
+ln -s libkeyutils.so.%{major} %{buildroot}%{_libdir}/libkeyutils.so
+
 %files
 %doc README
 %config(noreplace) %{_sysconfdir}/request-key.conf
 %{_bindir}/keyctl
 %{_sbindir}/request-key
 %{_sbindir}/key.dns_resolver
-%doc %{_mandir}/man1/keyctl.1.*
-%doc %{_mandir}/man5/request-key.conf.5.*
-%doc %{_mandir}/man8/request-key.8.*
+%doc %{_mandir}/man1/keyctl.1*
+%doc %{_mandir}/man5/request-key.conf.5*
+%doc %{_mandir}/man8/request-key.8*
 %doc %{_mandir}/man8/key.dns_resolver.8*
 %{_datadir}/%{name}/request-key-debug.sh
 
@@ -88,6 +94,6 @@ Developement files for %{libname}.
 %{_includedir}/%{name}.h
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/*.pc
-%doc %{_mandir}/man3/*.3.*
-%doc %{_mandir}/man7/*.7.*
-%doc %{_mandir}/man5/key.dns_resolver.conf.5.*
+%doc %{_mandir}/man3/*.3*
+%doc %{_mandir}/man7/*.7*
+%doc %{_mandir}/man5/key.dns_resolver.conf.5*
